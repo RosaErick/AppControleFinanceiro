@@ -1,0 +1,131 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Lato', sans-serif;   
+
+}
+
+/*------NAVBAR----*/
+.nav-bar  {
+width: 100%;
+
+display: flex;
+justify-content: space-between;
+background-color:#f2f7da;
+height: 80px;
+}
+
+.nav-text{
+display: flex;
+justify-content: start;
+align-items: center;
+margin-left: 100px;
+
+
+}
+
+.nav-text p {
+margin-left: 20px;
+font-weight: 600;
+font-size: 1em;
+
+}
+
+
+.nav-container {
+
+background-color: #fff;
+display: flex;
+align-items: center;
+margin: auto 100px;
+padding: 5px 10px;
+height: 50%;
+}
+
+.nav-list {
+list-style: none;
+display: flex;
+
+
+}
+
+.nav-item {
+
+margin: 5px;
+
+}
+
+.nav-item a {
+    text-decoration: none;
+    color:#000;
+}
+
+.nav-hr{
+width:2px;
+margin: 5px;
+color:#cecece;
+
+}
+
+
+/*-----TRANSACTIONS CONTAINER----*/
+main {
+display: flex;
+justify-content: center;
+margin: 20px auto;
+
+}
+
+.form-container {
+border:1px solid #cecece;
+width:40%;
+display: flex;
+flex-direction: column;
+align-items: start;
+margin:0 10px 0 0;
+border-radius: 4px;
+box-shadow: inset 1px 1px 5px rgb(240 235 245);
+box-shadow: 1px 1px 1px #cecece;
+padding: 10px;
+}
+
+.form-container h5 {
+font-size:20px;
+padding: 10px 0;
+align-self: center;
+
+
+}
+
+.form-row {
+margin: 10px 0;
+width:100%;
+}
+
+
+
+
+.input-dm, input{
+width: 100%;
+height: 30px;
+padding: 5px;
+background-color: #fff;
+border-radius: 4px;
+border: 1px solid #cecece;
+margin: 5px 0;
+
+}
+
+form button {
+width: 100%;
+padding: 5px;
+background-color: rgba(7, 6, 6, 0.692);
+border-radius: 4px;
+border: 1px solid;
+}
+
+form button a {
+text-decoration: none;
+color:#fff;
+}

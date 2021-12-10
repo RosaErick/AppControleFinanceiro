@@ -4,57 +4,102 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css">
     <title>Controle Financeiro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav class="nav-bar">
       <div class="nav-text">
-        <i src=""> <img src="" alt="" /></i>
+        <i src=""> <img src="assets/imgs/geometry.png" width="30" height=""alt="" /></i>
         <p>Controle financeiro</p>
       </div>
       <div class="nav-container">
         <ul class="nav-list">
-          <li class="nav-item">Dashboard</li>
-          <li class="nav-item">Resumo</li>
-          <li class="nav-item">Configurações</li>
+          <li class="nav-item"><a href="#">Cadastro de transações</a></li>
+          <hr class="nav-hr">
+          <li class="nav-item"><a href="#">Limpar Dados</a></li>
         </ul>
-
+      </nav>
         <main>
           <form class="form-container">
             <h5>Nova transação</h5>
             <div class="form-row">
-              <div class="label-type" >
+              <div class="label-type">
                 <label for="type">Tipo da transação</label>
               </div>
               <div class="input-field">
-                <select class="input-dm" name="type" id="type" > 
-                <option value="buy">Compra</option>
-                <option value="sell">Venda</option>
-            
+                <select class="input-dm" name="type" id="type">
+                  <option value="buy">Compra</option>
+                  <option value="sell">Venda</option>
                 </select>
               </div>
 
               <div class="form-row">
-                  <div class="label-name">
-                    <label for="name">Nome da mercadoria</label>
-                  </div>
-                  <div class="input-field">
-                      <input type="text" name="name" id="name" placeholder="Input">
-                  </div>
+                <div class="label-name">
+                  <label for="name">Nome da mercadoria</label>
+                </div>
+                <div class="input-field">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Input"
+                  />
+                </div>
               </div>
-                    <div class="form-row">
-                        <div class="label-number">
-                            <label for="number">Valor</label>
-                        </div>
-                        <div class="input-field">
-                            <input type="number" name="name" id="name" placeholder="R$ 0,00">
-                        </div>
-                    </div>
-
-
+              <div class="form-row">
+                <div class="label-number">
+                  <label for="number">Valor</label>
+                </div>
+                <div class="input-field">
+                  <input
+                    type="number"
+                    name="name"
+                    id="name"
+                    placeholder="R$ 0,00"
+                  />
+                </div>
+              </div>
             </div>
             <button><a href="#">Adicionar transação</a></button>
           </form>
+
+          <section>
+            <h5>Extrato de transação</h5>
+
+            <div class="spacebetween">
+              <p><strong>Mercadoria</strong></p>
+              <p><strong>Valor</strong></p>
+            </div>
+
+            <div class="spacebtween">
+              <span id="merch"> Lorem impsum</span>
+
+              <span id="value">R$ 12.999,99</span>
+            </div>
+
+            <div class="spacebtween">
+              <span> Quis nostrud exercitation</span>
+
+              <span>R$ 99,99</span>
+            </div>
+
+            <div class="spacebtween">
+              <span>Lorem ipsum</span>
+
+              <span>R$ 9,99</span>
+            </div>
+
+            <div class="spacebtween">
+              <span><strong>Total</strong></span>
+
+              <span id="total">R$ 12.909,99</span>
+            </div>
+          </section>
         </main>
       </div>
     </nav>
