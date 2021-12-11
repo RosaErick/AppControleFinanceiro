@@ -15,21 +15,22 @@
   background-color: #e0e0e0;
   height: 80px;
   align-items: center;
-  padding: 0 200px;
+  padding: 20px 200px;
 }
 
 .nav-text {
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-self: start;
+  flex:1;
+margin-left: 20px;
 }
 
 .nav-text p {
-  margin-left: 20px;
+
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
   color: #333333;
+  width: 100%;
 }
 
 .nav-container {
@@ -84,6 +85,7 @@ main {
   justify-content: center;
   margin: 30px 200px;
   flex-wrap: wrap;
+
 }
 
 .form-container {
@@ -187,6 +189,7 @@ form button a {
     left: 0;
     border: 0;
     top: 0;
+    cursor: pointer;
   }
   #close img {
     width: 16px;
@@ -226,21 +229,23 @@ form button a {
 
   .nav-bar {
     align-items: center;
-    padding: 0 50px;
+    padding: 0 10px;
+    justify-content:space-evenly;
   }
 
-  .nav-text {
-    margin: 0;
-  }
+.nav-text  {
+margin: 0 auto;
+flex: 0;
 
-  .nav-text p {
-    margin-left: 200px;
-  }
+}
 
-  .nav-text img {
-    margin-left: 0;
-    justify-content: center;
-  }
+.nav-text p{
+width:180px;
+
+}
+
+
+
 
   .hamburguer {
     display: block;
@@ -308,11 +313,13 @@ form button a {
   .nav-bar {
     align-items: center;
     padding: 0 20px;
+    justify-content:space-between;
+
   }
 
-  .nav-text p {
-    margin-left: 50px;
-  }
+.nav-text{
+margin: 0;
+}
 
   aside.show {
     width: 80%;
