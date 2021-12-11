@@ -10,7 +10,6 @@
 /*------NAVBAR----*/
 .nav-bar {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   background-color: #e0e0e0;
@@ -97,7 +96,6 @@ main {
   margin: 0 20px 0 0;
   border-radius: 4px;
   box-shadow: inset 1px 1px 5px rgb(240 235 245);
-
   padding: 10px;
 }
 
@@ -208,6 +206,7 @@ form button a {
     font-size: 16px;
   }
 
+
   aside a:hover {
     background-color: #c4c4c4;
     border-radius: 4px;
@@ -222,6 +221,7 @@ form button a {
     right: 0;
     top: 0;
     height: 100%;
+
   }
 
   .nav-bar {
@@ -286,7 +286,7 @@ form button a {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 740px) {
   .form-item input {
     width: 100%;
   }
@@ -296,7 +296,7 @@ form button a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   form button {
     width: 100%;
     margin-bottom: 20px;
