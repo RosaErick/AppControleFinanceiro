@@ -10,24 +10,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
     <nav class="nav-bar">
       <div class="nav-text">
-        <i src=""> <img src="assets/imgs/geometry.png" width="30" height=""alt="" /></i>
+      <img src="assets/imgs/Ellipse 13.png" width="35" height=""alt="" />
         <p>Controle financeiro</p>
       </div>
-      <div class="nav-container">
-        <ul class="nav-list">
+
+      <button class="hamburguer" id="hamburguer"> <i class="fa fa-bars"></i></button>
+      <div class="nav-container" id="nav" >
+        <ul class="nav-list" id="nav-ul">
           <li class="nav-item"><a href="#">Cadastro de transações</a></li>
           <hr class="nav-hr">
           <li class="nav-item"><a href="#">Limpar Dados</a></li>
+        
         </ul>
+      </div>
+
+      
       </nav>
         <main>
           <form class="form-container">
             <h5>Nova transação</h5>
+       
             <div class="form-row">
+             
+            <div class="form-item">
               <div class="label-type">
                 <label for="type">Tipo da transação</label>
               </div>
@@ -37,8 +48,9 @@
                   <option value="sell">Venda</option>
                 </select>
               </div>
+              </div>
 
-              <div class="form-row">
+                <div class="form-item">
                 <div class="label-name">
                   <label for="name">Nome da mercadoria</label>
                 </div>
@@ -50,51 +62,56 @@
                     placeholder="Input"
                   />
                 </div>
-              </div>
-              <div class="form-row">
+            </div>
+            <div class="form-item">
                 <div class="label-number">
                   <label for="number">Valor</label>
                 </div>
                 <div class="input-field">
                   <input
                     type="number"
-                    name="name"
-                    id="name"
+                    name="number"
+                    id="number"
                     placeholder="R$ 0,00"
                   />
-                </div>
-              </div>
+                  
+            </div>
+            </div>
+              
             </div>
             <button><a href="#">Adicionar transação</a></button>
           </form>
 
-          <section>
+          <section class="extract-section">
             <h5>Extrato de transação</h5>
 
             <div class="spacebetween">
               <p><strong>Mercadoria</strong></p>
               <p><strong>Valor</strong></p>
             </div>
-
-            <div class="spacebtween">
-              <span id="merch"> Lorem impsum</span>
+<hr>
+            <div class="spacebetween">
+              <div class="merch-name"><span>+</span> <span id="merch"> Lorem impsum dolor sit amet consectetur</span></div>
+             
 
               <span id="value">R$ 12.999,99</span>
             </div>
-
-            <div class="spacebtween">
-              <span> Quis nostrud exercitation</span>
+<hr>
+            <div class="spacebetween">
+              <div class="merch-name"><span>-</span> <span> Quis nostrud exercitation</span></div>
 
               <span>R$ 99,99</span>
             </div>
-
-            <div class="spacebtween">
-              <span>Lorem ipsum</span>
-
+<hr>
+            <div class="spacebetween">
+              <div classe="merch-name">
+              <span>+</span>
+             <span>Lorem ipsum</span>
+</div>
               <span>R$ 9,99</span>
             </div>
-
-            <div class="spacebtween">
+<hr><hr>
+            <div class="spacebetween">
               <span><strong>Total</strong></span>
 
               <span id="total">R$ 12.909,99</span>
@@ -103,5 +120,7 @@
         </main>
       </div>
     </nav>
+
+    <script src="assets/app.js"></script>
   </body>
 </html>
