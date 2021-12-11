@@ -1,10 +1,15 @@
 const hamburguer = document.getElementById('hamburguer');
-const nav = document.getElementById('nav');
-const navList = document.getElementById('nav-ul');
+const asideBar = document.getElementById('aside');
+const x = document.getElementById('close');
 
+
+
+x.addEventListener('click', () => {
+    asideBar.classList.remove('show');
+
+})
 
 hamburguer.addEventListener('click', () => {
-    navList.classList.toggle('show');
-    nav.classList.toggle('show');
+    asideBar.classList.toggle('show');
 
 })
