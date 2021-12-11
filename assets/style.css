@@ -20,12 +20,11 @@
 
 .nav-text {
   justify-self: start;
-  flex:1;
-margin-left: 20px;
+  flex: 1;
+  margin-left: 20px;
 }
 
 .nav-text p {
-
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -85,7 +84,6 @@ main {
   justify-content: center;
   margin: 30px 200px;
   flex-wrap: wrap;
-
 }
 
 .form-container {
@@ -207,8 +205,8 @@ form button a {
     text-align: right;
     padding: 5px 15px;
     font-size: 16px;
+    transition: all ease-in-out 300ms;
   }
-
 
   aside a:hover {
     background-color: #c4c4c4;
@@ -224,28 +222,23 @@ form button a {
     right: 0;
     top: 0;
     height: 100%;
-
+    transition: all ease-in 500ms;
   }
 
   .nav-bar {
     align-items: center;
     padding: 0 10px;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
   }
 
-.nav-text  {
-margin: 0 auto;
-flex: 0;
+  .nav-text {
+    margin: 0 auto;
+    flex: 0;
+  }
 
-}
-
-.nav-text p{
-width:180px;
-
-}
-
-
-
+  .nav-text p {
+    width: 180px;
+  }
 
   .hamburguer {
     display: block;
@@ -313,13 +306,8 @@ width:180px;
   .nav-bar {
     align-items: center;
     padding: 0 20px;
-    justify-content:space-between;
-
+    justify-content: space-between;
   }
-
-.nav-text{
-margin: 0;
-}
 
   aside.show {
     width: 80%;
