@@ -26,4 +26,9 @@ function getInputValue() {
     document.getElementById('merch').innerHTML = merchName;
     document.getElementById('value').innerHTML = "R$ " + merchValue;
 
+ 
+
 }
+
+
+

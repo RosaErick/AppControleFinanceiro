@@ -82,8 +82,9 @@ aside {
 main {
   display: flex;
   justify-content: center;
-  margin: 30px 200px;
-  flex-wrap: wrap;
+  margin: 30px;
+ 
+  flex-wrap: nowrap;
 }
 
 .form-container {
@@ -281,6 +282,7 @@ form button a {
 
   main {
     margin: 20px 25px;
+    flex-direction: column;
   }
 }
 
