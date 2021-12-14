@@ -10,23 +10,21 @@
 /*------NAVBAR----*/
 header {
   width: 100%;
-  background-color: #e0e0e0;
-  padding: 0 180px;
+  background: #e0e0e0;
+  padding: 0 200px;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-evenly;
-  background-color: #e0e0e0;
   align-items: center;
-  padding: 20px;
-  height: 80px;
+  height: 5rem;
+  background: #e0e0e0;
 }
 
 .nav-text {
   flex: 1;
-  justify-self: start;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .nav-text p {
@@ -34,37 +32,33 @@ header {
   font-size: 20px;
   line-height: 24px;
   color: #333333;
-  width: 100%;
 }
 
 .nav-container {
   background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 10px;
   height: 40px;
-}
-
-.nav-list {
-  list-style: none;
+  align-items: center;
   display: flex;
 }
 
 .nav-item {
-  margin: 5px;
-  padding: 5px;
+  display: inline;
+  list-style: none;
 }
 
 .nav-item a {
   text-decoration: none;
   color: #000;
+  padding: 0 15px;
 }
 
-.nav-hr {
+.border:after {
+  content: "";
+  margin: auto;
+  height: 20px;
   width: 1px;
-  margin: 10px 0;
-  color: #979797;
+  position: absolute;
+  background-color: #979797;
 }
 
 .hamburguer {
@@ -87,19 +81,17 @@ header {
 main {
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
   margin: 30px 200px;
 }
 
 .form-container {
   border: 1px solid #979797;
-  width: 35%;
+  width: 38%;
   display: flex;
   flex-direction: column;
   align-items: start;
   margin-right: 20px;
   border-radius: 4px;
-  box-shadow: inset 1px 1px 5px rgb(240 235 245);
   padding: 20px 10px;
 }
 
@@ -148,7 +140,7 @@ form button a {
 /*------EXTRACT SECTION -----*/
 
 .extract-section {
-  width: 65%;
+  width: 62%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -164,19 +156,14 @@ form button a {
 .spacebetween {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #979797;
+  padding: 8px 20px;
 }
 
-.spacebetween p {
-  margin: 0 20px;
-}
-
-.space-between span {
-  margin: 5px;
-}
-
-.extract-section hr {
-  padding: 0;
-  margin: 5px 0;
+.total {
+  border-top: 1px solid #979797;
+  border-bottom: 0;
+  margin-top: 3px;
 }
 
 /*---footer---*/
@@ -193,7 +180,7 @@ footer {
 
 @media (max-width: 1112px) {
   header {
-    padding: 0 5px;
+    padding: 0 20px;
   }
 
   main {
@@ -271,7 +258,6 @@ footer {
     align-items: center;
     padding: 0 10px;
     justify-content: space-evenly;
-    
   }
 
   .nav-text {
@@ -329,13 +315,11 @@ footer {
   }
 
   main {
-    margin: 0 20px;
+    margin: 0 10px;
   }
 
   .nav-bar {
     align-items: center;
-    padding: 0;
-    margin: 0 20px;
     justify-content: space-between;
     height: 60px;
   }
@@ -379,6 +363,6 @@ footer {
   }
 
   .spacebetween span {
-    padding: 2px;
+    flex-shrink: 0;
   }
 }
