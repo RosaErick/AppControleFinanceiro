@@ -8,20 +8,26 @@
 }
 
 /*------NAVBAR----*/
-.nav-bar {
+header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   background-color: #e0e0e0;
-  height: 80px;
+  padding: 0 180px;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #e0e0e0;
   align-items: center;
-  padding: 20px 200px;
+  padding: 20px;
 }
 
 .nav-text {
-  justify-self: start;
   flex: 1;
+  justify-self: start;
   margin-left: 20px;
+}
+.nav-logo {
 }
 
 .nav-text p {
@@ -82,32 +88,31 @@ aside {
 main {
   display: flex;
   justify-content: center;
-  margin: 30px;
   flex-wrap: nowrap;
+  margin: 30px 200px;
 }
 
 .form-container {
   border: 1px solid #979797;
-  width: 400px;
-  height: 344px;
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin: 0 20px 0 0;
+  margin-right: 20px;
   border-radius: 4px;
   box-shadow: inset 1px 1px 5px rgb(240 235 245);
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .form-container h5 {
   font-size: 16px;
-  padding: 10px 0;
   align-self: center;
 }
-
 .form-row {
-  margin: 30px 0;
   width: 100%;
+}
+.form-item {
+  margin: 10px 0;
 }
 
 .input-dm,
@@ -142,8 +147,7 @@ form button a {
 /*------EXTRACT SECTION -----*/
 
 .extract-section {
-  width: 680px;
-  height: 281px;
+  width: 65%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -176,6 +180,15 @@ form button a {
 
 /*-----media queries----*/
 
+@media (max-width: 1100px) {
+  header {
+    padding: 0 5px;
+  }
+  main {
+    margin: 30px 20px;
+  }
+}
+
 @media (max-width: 950px) {
   .nav-container {
     display: none;
@@ -189,6 +202,7 @@ form button a {
     top: 0;
     cursor: pointer;
   }
+
   #close img {
     width: 16px;
     margin: 15px;
@@ -199,6 +213,7 @@ form button a {
     flex-direction: column;
     margin: 50px 20px;
   }
+
   .aside-menu a {
     cursor: pointer;
     width: 100%;
@@ -270,6 +285,7 @@ form button a {
     width: 100%;
     margin-top: 60px;
   }
+
   #name {
     width: 340px;
   }
@@ -304,6 +320,7 @@ form button a {
   main {
     margin: 0;
   }
+
   .nav-bar {
     align-items: center;
     padding: 0 20px;
@@ -320,9 +337,11 @@ form button a {
     margin: 0;
     border: 0;
   }
+
   .form-container h5 {
     display: none;
   }
+
   .form-item input,
   #name {
     width: 100%;
