@@ -78,7 +78,7 @@ header {
   outline: none;
 }
 
-aside {
+#close {
   display: none;
 }
 
@@ -188,10 +188,68 @@ form button a {
 }
 
 @media (max-width: 768px) {
+  .nav-hr {
+    display: none;
+  }
   .nav-container {
     display: none;
   }
 
+  .nav-container.show {
+    background-color: #333333;
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    text-align: right;
+    font-size: 16px;
+    transition: all ease-in-out 300ms;
+    margin: 60px 0;
+  }
+  .nav-item {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .nav-item a {
+    display: inline-block;
+    cursor: pointer;
+    text-align: right;
+    padding: 10px 25px;
+    font-size: 16px;
+    transition: all ease-in-out 300ms;
+    color: #fff;
+    width: 100%;
+  }
+
+  .nav-item a:hover {
+    background-color: #c4c4c4;
+    border-radius: 0px;
+    color: #000;
+  }
+  #close {
+    display: block;
+    background: transparent;
+    position: absolute;
+    left: 0;
+    border: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  #close img {
+    width: 16px;
+    margin: 20px;
+  }
+  /*
   #close {
     background: transparent;
     position: absolute;
@@ -237,7 +295,7 @@ form button a {
     height: 100%;
     transition: all ease-in 500ms;
   }
-
+*/
   .nav-bar {
     align-items: center;
     padding: 0 10px;
@@ -309,7 +367,7 @@ form button a {
   }
 }
 
-@media (max-width:520px) {
+@media (max-width: 520px) {
   form button {
     width: 100%;
     margin-bottom: 20px;

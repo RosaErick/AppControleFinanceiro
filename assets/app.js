@@ -1,5 +1,5 @@
 const hamburguer = document.getElementById("hamburguer");
-const asideBar = document.getElementById("aside");
+const asideBar = document.getElementById("nav");
 const x = document.getElementById("close");
 
 x.addEventListener("click", () => {
