@@ -20,6 +20,7 @@ header {
   background-color: #e0e0e0;
   align-items: center;
   padding: 20px;
+  height: 80px;
 }
 
 .nav-text {
@@ -175,6 +176,15 @@ form button a {
   padding: 0;
   margin: 5px 0;
 }
+/*---footer---*/
+
+footer {
+  width: 100%;
+  background-color: #333333;
+  height: 8px;
+  position: fixed;
+  bottom: 0;
+}
 
 /*-----media queries----*/
 
@@ -194,7 +204,6 @@ form button a {
   .nav-container {
     display: none;
   }
-
   .nav-container.show {
     background-color: #333333;
     position: fixed;
@@ -318,12 +327,11 @@ form button a {
   .form-container {
     width: 100%;
     margin-top: 30px;
-    height: 240px;
     margin: 0;
   }
 
   .form-row {
-    justify-content: space-between;
+    justify-content: space-evenly;
     display: flex;
     flex-direction: row;
   }
@@ -331,19 +339,13 @@ form button a {
   .form-item {
     display: flex;
     flex-direction: column;
-  }
-
-  .form-item input {
-    width: 200px;
+    width: 100%;
+    padding: 0 5px;
   }
 
   .extract-section {
     width: 100%;
-    margin-top: 60px;
-  }
-
-  #name {
-    width: 340px;
+    margin-top: 44px;
   }
 
   form button {
@@ -357,16 +359,6 @@ form button a {
   }
 }
 
-@media (max-width: 740px) {
-  .form-item input {
-    width: 100%;
-  }
-
-  #name {
-    width: 100%;
-  }
-}
-
 @media (max-width: 520px) {
   form button {
     width: 100%;
@@ -374,23 +366,24 @@ form button a {
   }
 
   main {
-    margin: 0;
+    margin: 0 20px;
   }
 
   .nav-bar {
     align-items: center;
-    padding: 0 20px;
+    padding: 0;
+    margin: 0 20px;
     justify-content: space-between;
+    height: 60px;
   }
 
-  aside.show {
+  .nav-container.show {
     width: 80%;
   }
 
   .form-container {
-    width: 100%;
     height: 100%;
-    margin: 0;
+    box-shadow: none;
     border: 0;
   }
 
@@ -398,6 +391,9 @@ form button a {
     display: none;
   }
 
+  .form-item {
+    margin-top: 5px;
+  }
   .form-item input,
   #name {
     width: 100%;
@@ -409,7 +405,14 @@ form button a {
   }
 
   .extract-section {
-    width: 100%;
-    margin: 50px 5px 0 5px;
+    margin-top: 0;
+    padding: 30px 0;
+    border-top: 1px solid #979797;
+  }
+  .extract-section h5 {
+    margin-bottom: 20px;
+  }
+  .spacebetween span {
+    padding: 2px;
   }
 }
