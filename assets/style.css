@@ -124,15 +124,17 @@ input:focus {
   outline: none;
 }
 
-form button {
+.form-button {
   width: 100%;
-  padding: 5px;
+text-align: center;
+padding:0px;
   background-color: rgba(7, 6, 6, 0.692);
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid;
+    color: #fff;
 }
 
-form button a {
+.form-button a {
   text-decoration: none;
   color: #fff;
 }
@@ -151,6 +153,12 @@ form button a {
 .extract-section h5 {
   align-self: center;
   font-size: 16px;
+}
+.space-between{
+display: flex;
+justify-content: space-between;
+padding: 8px 20px;
+
 }
 
 .spacebetween {
