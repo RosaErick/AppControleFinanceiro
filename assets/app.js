@@ -38,11 +38,6 @@ function getInputValue(e) {
 
 //Draw Transactions
 function drawTransaction() {
-  currentLines = [...document.querySelectorAll(".spacebetween")];
-  currentLines.forEach((element) => {
-    element.remove();
-  });
-
   if (!transactions.length) {
     document.querySelector(".transactions").innerHTML = `
       <div class="spacebetween">
@@ -50,7 +45,7 @@ function drawTransaction() {
         <span id="merch">Nenhuma transacao cadastrada</span>
       </div>
   `;
-  } 
+  }
 
   for (let mercadoria in transactions) {
     document.querySelector(".transactions").innerHTML += `
@@ -61,14 +56,14 @@ function drawTransaction() {
             transactions[mercadoria].tipo == "buy"
               ? "<span>-</span>"
               : "<span>+</span>"
-            }</span >
+          }</span >
           <span id="merch">${transactions[mercadoria].mercadoria}</span>
         </div>
         <span id="value"> R$ ${transactions[mercadoria].valor}</span>
       </div>
     </div>
   `;
-    }
+  }
 }
 
 // clean data
