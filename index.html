@@ -1,99 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/imgs/Ellipse 13.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Controle Financeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="assets/imgs/Ellipse 13.png" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <title>Controle Financeiro</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
-
-<body>
-  <!--NAVBAR-->
-  <header>
-    <nav class="nav-bar">
-      <div class="nav-logo">
-        <img src="assets/imgs/Ellipse 13.png" alt="" />
-      </div>
-      <div class="nav-text">
-        <p>Controle financeiro</p>
-      </div>
-      <button class="hamburguer" id="hamburguer">
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="nav-container" id="nav">
-        <ul class="nav-list" id="nav-ul">
-          <li class="nav-item border"><a href="#">Cadastro de transações</a></li>
-          <li class="nav-item"><a href="#" onclick='deleteValue()'>Limpar dados</a></li>
-        </ul>
-        <button id="close">
-          <img src="assets/imgs/Vector.svg" alt="" />
+  <body>
+    <!--NAVBAR-->
+    <header>
+      <nav class="nav-bar">
+        <div class="nav-logo">
+          <img src="assets/imgs/Ellipse 13.png" alt="" />
+        </div>
+        <div class="nav-text">
+          <p>Controle financeiro</p>
+        </div>
+        <button class="hamburguer" id="hamburguer">
+          <div class="fa fa-bars"></div>
         </button>
-      </div>
-    </nav>
-  </header>
-  <!--MAIN SECTION-->
-  <main>
-    <form class="form-container" onsubmit="getInputValue(event)"; return false;>
-      <h5>Nova transação</h5>
-      <div class="form-row">
-        <div class="form-item">
-          <div class="label-type">
-            <label for="type">Tipo da transação</label>
+        <div class="nav-container" id="nav">
+          <ul class="nav-list" id="nav-ul">
+            <li class="nav-item border">
+              <a href="#">Cadastro de transações</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" onclick="deleteValue()">Limpar dados</a>
+            </li>
+          </ul>
+          <button id="close">
+            <img src="assets/imgs/Vector.svg" alt="" />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!--MAIN SECTION-->
+    <main>
+      <form
+        class="form-container"
+        onsubmit="getInputValue(event)"
+      >
+        <h5>Nova transação</h5>
+        <div class="form-row">
+          <div class="form-item">
+            <div class="label-type">
+              <label for="type">Tipo da transação</label>
+            </div>
+            <div class="input-field">
+              <select class="input-dm" name="type" required id="type">
+                <option value="buy">Compra</option>
+                <option value="sell">Venda</option>
+              </select>
+            </div>
           </div>
-          <div class="input-field">
-            <select class="input-dm" name="type" required id="type">
-              <option value="buy">Compra</option>
-              <option value="sell">Venda</option>
-            </select>
+          <div class="form-item">
+            <div class="label-name">
+              <label for="name">Nome da mercadoria</label>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Input"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <div class="label-number">
+              <label for="number">Valor</label>
+            </div>
+            <div class="input-field">
+              <input
+                type="number"
+                name="number"
+                id="number"
+                required
+                onkeypress="formValidation(event)"
+                placeholder="R$ 0,00"
+              />
+            </div>
           </div>
         </div>
-        <div class="form-item">
-          <div class="label-name">
-            <label for="name">Nome da mercadoria</label>
-          </div>
-          <div class="input-field">
-            <input type="text" name="name" id="name" required placeholder="Input" />
-          </div>
+
+        <input class="form-button" value="Adicionar transação" type="submit" />
+      </form>
+
+      <section class="extract-section">
+        <h5>Extrato de transação</h5>
+        <div class="space-between">
+          <p><strong>Mercadoria</strong></p>
+          <p><strong>Valor</strong></p>
         </div>
-        <div class="form-item">
-          <div class="label-number">
-            <label for="number">Valor</label>
-          </div>
-          <div class="input-field">
-            <input type="text" name="number" id="number" required onkeypress="formValidation(event)" placeholder="R$ 0,00" />
-          </div>
+        <div class="transactions" ></div>
+
+        <div class="space-between">
+          <p>Total</p>
+          <p>R$ 44</p>
+        
         </div>
-      </div>
-
-       <input class="form-button" value="Adicionar transação" type="submit" >
-    </form>
-   
-    <section class="extract-section">
-      <h5>Extrato de transação</h5>
-      <div class="space-between">
-        <p><strong>Mercadoria</strong></p>
-        <p><strong>Valor</strong></p>
-
-      </div>
-
-
-  <div class="space-between total">
-    <span><strong>Total</strong></span>
-    <span id="total">R$ 12.909,99</span>
-  </div>
-  
-    </section>
-
-  </main>
-  <footer></footer>
-  <script src="assets/app.js"></script>
-</body>
-
+      </section>
+    </main>
+    <footer></footer>
+    <script src="assets/app.js"></script>
+  </body>
 </html>

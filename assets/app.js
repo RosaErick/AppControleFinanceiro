@@ -11,13 +11,12 @@ hamburguer.addEventListener("click", () => {
   asideBar.classList.toggle("show");
 });
 
+let transactions = [];
+
 //add extract local storage
 const extractionsRaw = localStorage.getItem("transactions");
-
-if (extractionsRaw != null) {
-  var transactions = JSON.parse(extractionsRaw);
-} else {
-  var transactions = [];
+if (extractionsRaw) {
+  transactions = JSON.parse(extractionsRaw);
 }
 
 //Get Input Value - send to transactions
@@ -25,19 +24,17 @@ if (extractionsRaw != null) {
 function getInputValue(e) {
   e.preventDefault();
 
-  console.log(transactions);
-
   transactions.push({
     mercadoria: e.target.elements["name"].value,
     valor: e.target.elements["number"].value,
-    tipo: e.target.elements['type'].value
+    tipo: e.target.elements["type"].value,
   });
 
+  console.log(transactions);
   localStorage.setItem("transactions", JSON.stringify(transactions));
   drawTransaction();
+  totalValue();
 }
-
-
 
 //Draw Transactions
 function drawTransaction() {
@@ -46,45 +43,38 @@ function drawTransaction() {
     element.remove();
   });
 
-  for (mercadoria in transactions) {
-    if (transactions === []) {
-      document.querySelector(".extract-section").innerHTML += `
-       <div class="spacebetween">
+  if (!transactions.length) {
+    document.querySelector(".transactions").innerHTML = `
+      <div class="spacebetween">
+      <div class="merch-name">
+        <span id="merch">Nenhuma transacao cadastrada</span>
+      </div>
+  `;
+  } 
+
+  for (let mercadoria in transactions) {
+    document.querySelector(".transactions").innerHTML += `
+    <div>
+      <div class="spacebetween">
         <div class="merch-name">
-          <span id="merch">Nenhuma transacao cadastrada</span>
-        </div>
-    `;
-    } else {
-      document.querySelector(".extract-section").innerHTML += `
-  <div>
-   <div class="spacebetween">
-        <div class="merch-name">
-          <span>${ 
-            transactions[mercadoria].tipo == 'buy' ?  '<span>-</span>' : '<span>+</span>'
-    }</span >
+          <span>${
+            transactions[mercadoria].tipo == "buy"
+              ? "<span>-</span>"
+              : "<span>+</span>"
+            }</span >
           <span id="merch">${transactions[mercadoria].mercadoria}</span>
         </div>
-        <span id="value">${transactions[mercadoria].valor}</span>
+        <span id="value"> R$ ${transactions[mercadoria].valor}</span>
       </div>
-        </div>
-  
+    </div>
   `;
     }
-
-
-  }
 }
 
+// clean data
 function deleteValue(p) {
   transactions.splice(p);
   drawTransaction();
-  document.querySelector(".extract-section").innerHTML += `
-       <div class="spacebetween">
-        <div class="merch-name">
-         
-          <span id="merch">Nenhuma transacao cadastrada</span>
-        </div>
-    `;
   localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
@@ -95,15 +85,28 @@ drawTransaction();
 function formValidation(e) {
   e.preventDefault();
 
-  if (e.target.value.length == 0) {
-    e.target.value += "R$ ";
-  }
-
-  if (e.target.value.length == 6) {
-    e.target.value += ",";
-  }
-
   if (/[0-9 ,.]/g.test(e.key)) {
     e.target.value += e.key;
   }
 }
+
+//sum total value
+/*
+function totalValue() {
+  let totalItems = [];
+  for (itemValue in transactions) {
+    totalItems += transactions[itemValue].valor;
+
+    let newTotal = totalItems.replace(/[a-z,A-Z$]/g, "").split(" ");
+    let sum = "";
+
+    for (let i = 0; i < newTotal.length; i++) {
+      sum += newTotal[i];
+      console.log(sum);
+      console.log(typeof sum);
+    }
+  }
+}
+
+totalValue();
+*/
