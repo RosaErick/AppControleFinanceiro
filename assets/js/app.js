@@ -18,12 +18,14 @@ function totalSum() {
   total = transactions.reduce(
     (acc, next) =>
       next.tipo === "sell"
-        ? acc + parseFloat(next.valor)
-        : acc - parseFloat(next.valor),
+        ? acc + parseFloat(next.valor.replace(",", ".").replace(".", ""))
+        : acc - parseFloat(next.valor.replace(",", ".").replace(".", "")),
     0
   );
 
-  document.getElementById("totalValues").innerHTML = `R$ ${total}`;
+  document.getElementById("totalValues").innerHTML = `R$ ${total.toLocaleString(
+    "pt-BR"
+  )}`;
 
   if (total > 0) {
     document.getElementById(
@@ -89,6 +91,7 @@ function drawTransaction() {
   }
 }
 drawTransaction();
+
 // clear data
 function deleteValue(p) {
   let confirmDelete = confirm("Tem certeza que deseja limpar todos os dados?");
@@ -101,28 +104,21 @@ function deleteValue(p) {
   }
 }
 
-//form test validation
+//form test validation and format value
 
-function formValidation(e) {
-  e.preventDefault();
+function formatValue() {
+  let format = document.getElementById("number");
+  let newValue = format.value;
 
-  // only numbers validation
-  if (/[0-9,.]/g.test(e.key)) {
-    e.target.value += e.key.replace(",", ".");
+  newValue = newValue + "";
+  newValue = parseInt(newValue.replace(/[\D]+/g, ""));
+  newValue = newValue + "";
+  newValue = newValue.replace(/([0-9]{2})$/g, ",$1");
+
+  if (newValue.length > 6) {
+    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   }
 
-  //format Value
-  let format = e.target.value;
-
-  format = format + "";
-  format = parseInt(format.replace(/[\D]+/g, ""));
-  format = format + "";
-  format = format.replace(/([0-9]{2})$/g, ",$1");
-
-  if (format.length > 6) {
-    format.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-  }
-
-  e.target.value = format;
-  if (format == "NaN") e.target.value = "";
+  format.value = newValue;
+  if (newValue == "NaN") format.value = "";
 }
