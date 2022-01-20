@@ -93,6 +93,7 @@ main {
   margin-right: 20px;
   border-radius: 4px;
   padding: 20px 10px;
+  height: 330px;
 }
 
 .form-container h5 {
@@ -126,12 +127,12 @@ input:focus {
 
 .form-button {
   width: 100%;
-text-align: center;
-padding:0px;
+  text-align: center;
+  padding: 0px;
   background-color: rgba(7, 6, 6, 0.692);
   border-radius: 6px;
   border: 1px solid;
-    color: #fff;
+  color: #fff;
 }
 
 .form-button a {
@@ -154,11 +155,11 @@ padding:0px;
   align-self: center;
   font-size: 16px;
 }
-.space-between{
-display: flex;
-justify-content: space-between;
-padding: 8px 20px;
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
 }
 
 .spacebetween {
@@ -172,6 +173,10 @@ padding: 8px 20px;
   border-top: 1px solid #979797;
   border-bottom: 0;
   margin-top: 3px;
+}
+
+.merch-name span {
+  padding: 0 5px;
 }
 
 /*---footer---*/
@@ -285,6 +290,7 @@ footer {
     width: 100%;
     margin-top: 30px;
     margin: 0;
+    height: auto;
   }
 
   .form-row {
@@ -305,7 +311,7 @@ footer {
     margin-top: 44px;
   }
 
-  form button {
+  .form-button {
     width: 200px;
     align-self: end;
   }
@@ -317,7 +323,7 @@ footer {
 }
 
 @media (max-width: 520px) {
-  form button {
+  .form-button {
     width: 100%;
     margin-bottom: 20px;
   }

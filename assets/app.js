@@ -19,6 +19,39 @@ if (extractionsRaw) {
   transactions = JSON.parse(extractionsRaw);
 }
 
+//increase or decrease total value
+function totalSum() {
+  total = transactions.reduce((acc, next) => 
+    next.tipo === 'sell' ? acc + parseFloat(next.valor) : acc - parseFloat(next.valor) , 
+    0)
+  
+ 
+  document.getElementById("totalValues").innerHTML = `R$ ${total}`;
+
+  if (total > 0) {
+    document.getElementById("totalValues").innerHTML += `<br><span>[LUCRO]</span>`;
+  }
+
+    if (total < 0) {
+    document.getElementById("totalValues").innerHTML += `<br><span>[PREJUÍZO]</span>`;
+  }
+  // let total = 0;
+  // for (i in transactions) {
+  //   console.log({valor: parseFloat(transactions[i].valor)})
+  //   if (transactions[i].tipo == "sell") {
+  //     console.log(transactions[i].valor);
+  //     total += parseFloat(transactions[i].valor);
+  //     document.getElementById("totalValues").innerHTML = `R$ ${String(total)}`;
+  //   }
+  //   if (transactions[i].tipo == "buy") {
+  //     total -= parseFloat(transactions[i].valor);
+  //     console.log({total})
+  //     document.getElementById("totalValues").innerHTML = `R$ ${String(total)}`;
+  //   }
+  // console.log({total});
+  // }
+}
+
 //Get Input Value - send to transactions
 
 function getInputValue(e) {
@@ -32,43 +65,51 @@ function getInputValue(e) {
 
   console.log(transactions);
   localStorage.setItem("transactions", JSON.stringify(transactions));
+
+
   drawTransaction();
-  totalValue();
+  totalSum();
 }
 
-//Draw Transactions
+//Draw Transactions in HTML
 function drawTransaction() {
+  removeElem = [...document.querySelectorAll(".spacebetween")];
+  removeElem.forEach((element) => {
+    element.remove();
+  });
+
   if (!transactions.length) {
     document.querySelector(".transactions").innerHTML = `
       <div class="spacebetween">
       <div class="merch-name">
-        <span id="merch">Nenhuma transacao cadastrada</span>
+        <span id="merch">Nenhuma transação cadastrada.</span>
       </div>
   `;
   }
 
-  for (let mercadoria in transactions) {
+  for (m in transactions) {
     document.querySelector(".transactions").innerHTML += `
     <div>
       <div class="spacebetween">
         <div class="merch-name">
           <span>${
-            transactions[mercadoria].tipo == "buy"
+            transactions[m].tipo == "buy"
               ? "<span>-</span>"
               : "<span>+</span>"
           }</span >
-          <span id="merch">${transactions[mercadoria].mercadoria}</span>
+          <span id="merch">${transactions[m].mercadoria}</span>
         </div>
-        <span id="value"> R$ ${transactions[mercadoria].valor}</span>
+        <span id="value"> R$ ${transactions[m].valor}</span>
       </div>
     </div>
   `;
   }
 }
 
-// clean data
+// clear data
 function deleteValue(p) {
   transactions.splice(p);
+  document.getElementById("totalValues").innerHTML = `R$ `;
   drawTransaction();
   localStorage.setItem("transactions", JSON.stringify(transactions));
 }
@@ -80,28 +121,61 @@ drawTransaction();
 function formValidation(e) {
   e.preventDefault();
 
+  e.target.value;
+  
+
   if (/[0-9 ,.]/g.test(e.key)) {
-    e.target.value += e.key;
+    e.target.value += e.key.replace(",", ".");
   }
 }
 
 //sum total value
 /*
 function totalValue() {
-  let totalItems = [];
-  for (itemValue in transactions) {
-    totalItems += transactions[itemValue].valor;
+  let totalItems = '';
 
-    let newTotal = totalItems.replace(/[a-z,A-Z$]/g, "").split(" ");
-    let sum = "";
+  for (i in transactions) {
+    totalItems += transactions[i].valor;
+    console.log(totalItems);
+    let newTotal = [...totalItems.replace(/[a-z,A-Z$]/g, "")]
+  
+    let sum = 0
+    for (b in newTotal) {
 
+      sum += parseInt(newTotal[b]);
+      console.log(sum)
+    }
+
+  }
+}
+  */
+/*
     for (let i = 0; i < newTotal.length; i++) {
+   
       sum += newTotal[i];
       console.log(sum);
       console.log(typeof sum);
     }
+  
   }
 }
+  */
 
-totalValue();
+/*
+//get object value with OnChange
+function increaseTotalValue(e) {
+  console.log(this.value);
+let totalSum = 0
+  for (let item of this.value) {
+ 
+    totalSum += parseInt(item.innerHTML.replace(/[a-z A-Z$]/g, "").split(" ").reduce((totalSum, newTotal) => totalSum + newTotal, 0));
+   
+  
+    console.log(totalSum);
+    console.log(typeof totalSum)
+    console.log(transactions)
+  }
+  document.getElementById('totalValues').innerHTML = `R$ ${totalSum}`;
+}
+
 */
