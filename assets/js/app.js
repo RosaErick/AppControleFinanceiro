@@ -18,13 +18,13 @@ function totalSum() {
   total = transactions.reduce(
     (acc, next) =>
       next.tipo === "sell"
-        ? acc + parseFloat(next.valor.replace(",", ".").replace(".", ""))
-        : acc - parseFloat(next.valor.replace(",", ".").replace(".", "")),
+        ? acc + parseFloat(next.valor.replace(",", "."))
+        : acc - parseFloat(next.valor.replace(",", ".")),
     0
   );
 
   document.getElementById("totalValues").innerHTML = `R$ ${total.toLocaleString(
-    "pt-BR"
+    "pt-BR", { minimumFractionDigits: 2}
   )}`;
 
   if (total > 0) {
