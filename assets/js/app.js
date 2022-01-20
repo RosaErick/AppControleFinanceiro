@@ -24,7 +24,7 @@ function totalSum() {
   );
 
   document.getElementById("totalValues").innerHTML = `R$ ${total.toLocaleString(
-    "pt-BR", { minimumFractionDigits: 3}
+    "pt-BR", { minimumFractionDigits: 2}
   )}`;
 
   if (total > 0) {
