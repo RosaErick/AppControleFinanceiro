@@ -38,13 +38,9 @@ function totalSum() {
       "totalValues"
     ).innerHTML += `<br><span>[PREJUÍZO]</span>`;
   }
-
-
-
 }
 
 //Get Input Value - send to transactions in localStorage
-
 function getInputValue(e) {
   e.preventDefault();
 
@@ -59,7 +55,6 @@ function getInputValue(e) {
 
   drawTransaction();
   totalSum();
-
 }
 
 //Draw Transactions in HTML
@@ -109,7 +104,6 @@ function deleteValue(p) {
 }
 
 //form test validation and format value
-
 function formatValue() {
   let format = document.getElementById("number");
   let newValue = format.value;
@@ -126,11 +120,3 @@ function formatValue() {
   format.value = newValue;
   if (newValue == "NaN") format.value = "";
 }
-
-
-
-
-
-
-
-
