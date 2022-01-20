@@ -24,7 +24,7 @@ function totalSum() {
   );
 
   document.getElementById("totalValues").innerHTML = `R$ ${total.toLocaleString(
-    "pt-BR", { minimumFractionDigits: 2}
+    "pt-BR", { minimumFractionDigits: 3}
   )}`;
 
   if (total > 0) {
@@ -38,6 +38,9 @@ function totalSum() {
       "totalValues"
     ).innerHTML += `<br><span>[PREJUÍZO]</span>`;
   }
+
+
+
 }
 
 //Get Input Value - send to transactions in localStorage
@@ -56,6 +59,7 @@ function getInputValue(e) {
 
   drawTransaction();
   totalSum();
+
 }
 
 //Draw Transactions in HTML
@@ -116,9 +120,17 @@ function formatValue() {
   newValue = newValue.replace(/([0-9]{2})$/g, ",$1");
 
   if (newValue.length > 6) {
-    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ",$1,$2");
   }
 
   format.value = newValue;
   if (newValue == "NaN") format.value = "";
 }
+
+
+
+
+
+
+
+
