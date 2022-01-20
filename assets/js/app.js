@@ -88,25 +88,41 @@ function drawTransaction() {
   `;
   }
 }
-
+drawTransaction();
 // clear data
 function deleteValue(p) {
-  transactions.splice(p);
-  document.getElementById("totalValues").innerHTML = `R$ `;
-  drawTransaction();
-  localStorage.setItem("transactions", JSON.stringify(transactions));
-}
+  let confirmDelete = confirm("Tem certeza que deseja limpar todos os dados?");
 
-drawTransaction();
+  if (confirmDelete) {
+    transactions.splice(p);
+    document.getElementById("totalValues").innerHTML = `R$ `;
+    drawTransaction();
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }
+}
 
 //form test validation
 
 function formValidation(e) {
   e.preventDefault();
 
-  e.target.value;
-
+  // only numbers validation
   if (/[0-9,.]/g.test(e.key)) {
     e.target.value += e.key.replace(",", ".");
   }
+
+  //format Value
+  let format = e.target.value;
+
+  format = format + "";
+  format = parseInt(format.replace(/[\D]+/g, ""));
+  format = format + "";
+  format = format.replace(/([0-9]{2})$/g, ",$1");
+
+  if (format.length > 6) {
+    format.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+
+  e.target.value = format;
+  if (format == "NaN") e.target.value = "";
 }
