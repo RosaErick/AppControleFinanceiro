@@ -14,17 +14,18 @@ hamburguer.addEventListener("click", () => {
 //increase or decrease total value
 let transactions = [];
 
-function totalSum() {
+function totalSum() {     
   total = transactions.reduce(
     (acc, next) =>
       next.tipo === "sell"
-        ? acc + parseFloat(next.valor.replace(",", "."))
-        : acc - parseFloat(next.valor.replace(",", ".")),
+        ? acc + parseFloat(next.valor.replace(".", "").replace(",", "."))
+        : acc - parseFloat(next.valor.replace(".", "").replace(",", ".")),
     0
   );
 
   document.getElementById("totalValues").innerHTML = `R$ ${total.toLocaleString(
-    "pt-BR", { minimumFractionDigits: 2}
+    "pt-BR",
+    { minimumFractionDigits: 2 }
   )}`;
 
   if (total > 0) {
@@ -59,10 +60,12 @@ function getInputValue(e) {
 
 //Draw Transactions in HTML
 function drawTransaction() {
+
   removeElem = [...document.querySelectorAll(".spacebetween")];
   removeElem.forEach((element) => {
     element.remove();
   });
+
 
   if (!transactions.length) {
     document.querySelector(".transactions").innerHTML = `
@@ -93,6 +96,7 @@ drawTransaction();
 
 // clear data
 function deleteValue(p) {
+
   let confirmDelete = confirm("Tem certeza que deseja limpar todos os dados?");
 
   if (confirmDelete) {
@@ -114,9 +118,10 @@ function formatValue() {
   newValue = newValue.replace(/([0-9]{2})$/g, ",$1");
 
   if (newValue.length > 6) {
-    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ",$1,$2");
+    newValue = newValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
   }
 
   format.value = newValue;
   if (newValue == "NaN") format.value = "";
 }
+
