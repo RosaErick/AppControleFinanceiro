@@ -11,10 +11,15 @@ hamburguer.addEventListener("click", () => {
   asideBar.classList.toggle("show");
 });
 
-//increase or decrease total value
+//persist on local storage
 let transactions = [];
+const extractionsRaw = localStorage.getItem("transactions");
+if (extractionsRaw) {
+  transactions = JSON.parse(extractionsRaw);
+}
 
-function totalSum() {     
+//increase or decrease total value
+function totalSum() {
   total = transactions.reduce(
     (acc, next) =>
       next.tipo === "sell"
@@ -41,7 +46,7 @@ function totalSum() {
   }
 }
 
-//Get Input Value - send to transactions in localStorage
+//Get Input Value - send to transactions on localStorage
 function getInputValue(e) {
   e.preventDefault();
 
@@ -56,16 +61,15 @@ function getInputValue(e) {
 
   drawTransaction();
   totalSum();
+  document.getElementById("form").reset();
 }
 
 //Draw Transactions in HTML
 function drawTransaction() {
-
   removeElem = [...document.querySelectorAll(".spacebetween")];
   removeElem.forEach((element) => {
     element.remove();
   });
-
 
   if (!transactions.length) {
     document.querySelector(".transactions").innerHTML = `
@@ -93,10 +97,9 @@ function drawTransaction() {
   }
 }
 drawTransaction();
-
+totalSum();
 // clear data
 function deleteValue(p) {
-
   let confirmDelete = confirm("Tem certeza que deseja limpar todos os dados?");
 
   if (confirmDelete) {
@@ -124,4 +127,3 @@ function formatValue() {
   format.value = newValue;
   if (newValue == "NaN") format.value = "";
 }
-
